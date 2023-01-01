@@ -1,0 +1,23 @@
+<div class="container mt-5">
+<!-- enter bar -->
+<h3>Success! Please use this link:</h3>
+
+ <div class="input-group mb-3">
+  <input type="text" name="original_url" class="form-control" placeholder="Input URL here" value="http://localhost:3000/{{link.password}}" id="copy" disabled>
+  <button class="btn btn-outline-secondary" id="copy-button" onclick="copy()"><i class="fa fa-clone" aria-hidden="true"></i></button>
+ </div>
+
+<script>
+    function copy() {
+      const URL = document.getElementById("copy")
+      navigator.clipboard.writeText(URL.value)
+        .then(() => alert('copied'))
+        .catch(error => console.log(error))
+    }
+  </script>
+<div>
+    <form action="/">
+    <button class="btn btn-outline-primary" type="submit">Shorten another one!</button>
+    </form>
+</div>
+</div>
