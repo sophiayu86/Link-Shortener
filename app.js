@@ -45,13 +45,9 @@ app.post("/", (req, res) => {
           original_url: original_url,
           password: myPassword,
         });
-        const id = url._id.toHexString();
-        return url
-          .save()
-          .then(() => {
-            return Url.findById(id).lean();
-          })
-          .then((link) => {
+        url.save()
+        .then(()=> {return url.toObject()}) 
+        .then((link) => {
             res.render("success", { link });
           })
           .catch((error) => console.log(error));
