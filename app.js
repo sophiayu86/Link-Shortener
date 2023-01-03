@@ -59,7 +59,7 @@ app.post("/", (req, res) => {
 //透過短網址轉址到原本網址
 app.get("/:password", (req, res) => {
   const myPassword = req.params.password;
-  return Url.findOne({ password: myPassword }).then((link) => {
+  return Url.findOne({ password: myPassword }).lean().then((link) => {
     res.redirect(`${link.original_url}`);
   });
 });
